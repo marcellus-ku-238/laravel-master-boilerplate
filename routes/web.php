@@ -26,6 +26,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('projects', App\Http\Livewire\Admin\Project\Index::class)->name('project.index');
+    Route::get('projects/+', App\Http\Livewire\Admin\Project\Create::class)->name('project.create');
 });
 
 require __DIR__.'/auth.php';
